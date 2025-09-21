@@ -14,12 +14,12 @@ mongoose.connect(process.env.MONGO_URI)
   .then(() => console.log("MongoDB connected"))
   .catch((err) => console.error(err));
 
-  app.use("/",(req,res)=>{
-    res.json({"name":"vishwamohini"})
-  })
-
 // Routes
 app.use("/api/auth", authRoutes);
+
+ app.use("/check",(req,res)=>{
+    res.json({"name":"vishwamohini"})
+  })
 
 // Start server
 const PORT = process.env.PORT || 5000;
