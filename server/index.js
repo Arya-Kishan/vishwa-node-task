@@ -6,7 +6,7 @@ require("dotenv").config();
 const authRoutes = require("./routes/authRoute");
 
 const app = express();
-app.use(cors({ origin: "*" }));
+app.use(cors({ origin: ["https://vishwa-bacchi.netlify.app","*"] }));
 app.use(express.json());
 
 // MongoDB connection
