@@ -24,6 +24,18 @@ export default function SignUp({ setUser }) {
     e.preventDefault();
     setError("");
 
+        if (form.username == "") {
+      return setError("Please Fill Username");
+    }
+    
+     if (form.password == "") {
+      return setError("Please Fill Password");
+    }
+
+     if (form.email == "") {
+      return setError("Please Fill Password");
+    }
+
     try {
       const res = await fetch(`${baseUrl}/api/auth/register`, {
         method: "POST",
