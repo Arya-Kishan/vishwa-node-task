@@ -8,6 +8,7 @@ export default function Login({ setUser }) {
   const [showPassword, setShowPassword] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
   const navigate = useNavigate();
+  const baseUrl = import.meta.env.VITE_API_URL;
 
   // ✅ Redirect if user exists in localStorage
   useEffect(() => {
@@ -28,7 +29,7 @@ export default function Login({ setUser }) {
     setIsLoading(true);
 
     try {
-      const res = await fetch("http://localhost:5000/api/auth/login", {
+      const res = await fetch(`${baseUrl}/api/auth/login`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(form),

@@ -14,6 +14,7 @@ export default function ForgotPassword() {
   const [messageType, setMessageType] = useState(""); // 'success' or 'error'
   const [isLoading, setIsLoading] = useState(false);
   const navigate = useNavigate();
+  const baseUrl = import.meta.env.VITE_API_URL;
 
   const handleChange = (e) => {
     setForm({ ...form, [e.target.name]: e.target.value });
@@ -39,7 +40,7 @@ export default function ForgotPassword() {
     }
 
     try {
-      const res = await fetch("http://localhost:5000/api/auth/forgot-password", {
+      const res = await fetch(`${baseUrl}/api/auth/forgot-password`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
